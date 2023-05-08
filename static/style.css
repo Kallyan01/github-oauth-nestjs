@@ -1,0 +1,138 @@
+body {
+    height: 100vh;
+    margin: 0;
+    color: #222;
+    font-family: 'Kumbh Sans', sans-serif;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    background: rgb(71, 43, 186);
+    position: relative;
+    background: linear-gradient(0deg, rgb(255, 255, 255) 0%, rgb(235, 235, 235) 100%);
+}
+
+.content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    width: 380px;
+    height: 480px;
+    border-radius: 40px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 3px 16px #222;
+}
+
+.content-bottom {
+    margin: 10px 0;
+}
+
+h1 {
+    font-family: 'Arvo', serif;
+    font-size: 26px;
+    margin: 32px auto 24px;
+    line-height: 40px;
+}
+
+.img-github {
+    margin-top: 32px;
+    width: 160px;
+    height: 160px;
+}
+
+.btn {
+    text-decoration: none;
+    display: block;
+    width: 220px;
+    line-height: 38px;
+    padding-top: 2px;
+    border-radius: 20px;
+    color: white;
+    background: rgba(71, 43, 186, 1);
+    margin: 0 auto;
+    border: none;
+    font-size: 14px;
+}
+
+input[type='text'] {
+    width: 180px;
+    line-height: 32px;
+    margin-bottom: 12px;
+    padding-left: 12px;
+}
+
+.sign-in-text {
+    font-size: 14px;
+    line-height: 22px;
+}
+
+.party-popper {
+    display: inline-block;
+    font-size: 52px;
+    margin-bottom: 24px;
+}
+
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #24292F;
+    /* border-bottom: 1px solid #fff; */
+    color: #fff;
+    width: 100%;
+    display: flex;
+    justify-content: end;
+    height: 4rem;
+}
+
+.profile {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    padding: 0 50px;
+}
+
+.repo_list {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    height: 90vh;
+}
+
+.repo {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 1rem;
+    align-items: center;
+    /* background-color: red; */
+}
+
+.content-area {
+    /* background-color: blue; */
+    height: calc(100vh-65px);
+    width: 100%;
+    overflow-y: scroll;
+    padding: 5rem 0;
+}
+
+.action-sec {
+    border-bottom: 1px solid gray;
+    padding: 10px;
+}
+
+.action-sec>button {
+    background-color: black;
+    color: white;
+    border: none;
+    outline: none;
+    padding: .6rem 1.5rem;
+    font-size: 1.2rem;
+    border-radius: 10px;
+    cursor: pointer;
+}
