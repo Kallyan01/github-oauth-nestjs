@@ -1,6 +1,6 @@
 <p align="center">
   <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
-   <a href="http://nestjs.com/" target="blank"><img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" width="200" alt="Nest Logo" /></a>
+   <a href="http://nestjs.com/" target="blank"><img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg" width="200" alt="Nest Logo" /></a>
 </p>
 
 
