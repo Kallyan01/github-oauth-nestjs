@@ -1,73 +1,85 @@
 <p align="center">
   <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
+   <a href="http://nestjs.com/" target="blank"><img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" width="200" alt="Nest Logo" /></a>
 </p>
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
 
-## Description
+# Github-Oauth-App
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+Introducing our web app that simplifies the process of creating a GitHub repository. With our user-friendly interface, you can quickly authorize your GitHub account and create a new repository with just a few clicks. Say goodbye to the hassle of navigating GitHub's complex settings and commands. Our app streamlines the process, making it easy for both beginners and experienced developers to create a new repository. Additionally, our app allows you to customize your repository's name, description, and other details. Whether you're working on a personal project or collaborating with a team, our app makes it easy to get started on GitHub. Try it out today and experience the convenience of creating a new repository in seconds!
 
+
+## Tech Stack
+
+**Client:**  Html , Css , Javascript
+
+**Server:** Nest.js
+
+
+## Environment Variables
+
+To run this project, you will need to add the following environment variables to your .env file in root directory
+
+for getting the bellow credentials please reffer the bellow url 
+https://docs.github.com/en/apps/oauth-apps/building-oauth-apps/creating-an-oauth-app
+
+
+```bash
+GITHUB_CLIENT_ID= YOUR_CLIENT_ID
+GITHUB_SECRET= YOUR_APP_SECRET
+PORT= 5100
+```
 ## Installation
 
-```bash
-$ npm install
-```
-
-## Running the app
+Install my-project with npm
 
 ```bash
-# development
-$ npm run start
+  git clone https://github.com/Kallyan01/github-oauth-nestjs.git
+  cd github-oauth-nestjs
+  npm install
+  npm run start
+```
+    
+## API Reference
 
-# watch mode
-$ npm run start:dev
+#### OAuth login
 
-# production mode
-$ npm run start:prod
+```http
+  GET /auth/user
+```
+Redirect You to github OAuth Popup , where you have to grant permission to access all the repo read & Write data
+
+#### OAuth callback
+
+```http
+  GET /auth/gitoauth-callback
 ```
 
-## Test
+| Body | Type     | 
+| :-------- | :------- | 
+| `code`      | `string` 
 
-```bash
-# unit tests
-$ npm run test
+Generate the accessToken for you 
 
-# e2e tests
-$ npm run test:e2e
+#### Create Repository
 
-# test coverage
-$ npm run test:cov
+```http
+  POST /user/create_repo
 ```
 
-## Support
+| Header | Type     |  Required| 
+| :-------- | :------- |  :------- | 
+| `authorization`      | `Bearer` | `true` 
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+| Body | Type     |  Description| 
+| :-------- | :------- |  :------- | 
+| `name`      | `String` | `Repo Name`
+| `description`      | `String` | `Repo Description` 
 
-## Stay in touch
+Generate the accessToken for you 
 
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
 
-## License
 
-Nest is [MIT licensed](LICENSE).
+
+

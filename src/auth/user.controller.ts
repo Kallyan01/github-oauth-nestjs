@@ -11,7 +11,6 @@ export class CreateRepoController {
     @Req() req: CreateRepoRequest,
     @Res() res: CreateRepoResponse,
   ) {
-    // console.log(authHeader);
     const body = req.body;
     this.git.createRepo(res, { body, authHeader });
   }
