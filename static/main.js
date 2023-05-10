@@ -47,8 +47,9 @@ const getRepos = async (token) => {
   let repos = await response.json();
   return repos;
 };
+
 function renderRepo(name, link) {
-  console.log(name, link);
+  hide('.createrepo');
   // create parent element
   const container = document.createElement('div');
   container.className = 'repo';
@@ -93,6 +94,10 @@ function openCreateRepoForm() {
   show('.createrepo');
 }
 
+function closeCreateRepoForm() {
+  hide('.createrepo');
+}
+
 form?.addEventListener('submit', handleSubmit);
 
 async function handleSubmit(event) {
@@ -111,13 +116,14 @@ async function handleSubmit(event) {
     description: data?.description,
   });
 
-  let response = await fetch('https://api.github.com/user/repos', {
+  let response = await fetch('/user/create_repo', {
     method: 'POST',
     body: bodyContent,
     headers: headersList,
   });
 
   let repo = await response.json();
+
   const parent = document.querySelector('.repo_list');
   const children = parent?.querySelectorAll('div');
   children?.forEach((child) => child.remove());

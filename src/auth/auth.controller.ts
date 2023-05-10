@@ -1,21 +1,20 @@
-import { Controller, Get, Req, Res } from '@nestjs/common';
+import { Controller, Get, Headers, Req, Res } from '@nestjs/common';
 import { GitAuthUrl, GitOAuth } from './auth.services';
-import { Response, Request } from 'express';
-import axios from 'axios';
+import { GitAuthRequest, GitAuthResponse } from 'src/utils/types/reqres';
 
 @Controller('auth')
-export class GitAuth {
+export class GitAuthController {
   constructor(private readonly git: GitAuthUrl) {}
   @Get('user')
-  gitauth(@Res() res: Response) {
+  gitauth(@Res() res: GitAuthResponse) {
     res.redirect(this.git.getGitUrl());
   }
 }
 @Controller('auth')
-export class GitAuthCallBack {
+export class GitAuthCallBackController {
   constructor(private readonly gitcallback: GitOAuth) {}
   @Get('gitoauth-callback')
-  gitauthcall(@Req() req: Request, @Res() res: Response) {
+  gitauthcall(@Req() req: GitAuthRequest, @Res() res: GitAuthResponse) {
     this.gitcallback.gitOAuthReq(req, res);
   }
 }

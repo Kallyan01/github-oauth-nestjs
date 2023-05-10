@@ -26,7 +26,7 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    box-shadow: 0 3px 16px #222;
+    box-shadow: 0 3px 16px #e0e0e0;
 }
 
 .content-bottom {
@@ -135,4 +135,66 @@ input[type='text'] {
     font-size: 1.2rem;
     border-radius: 10px;
     cursor: pointer;
+}
+
+label {
+    display: block;
+    /* width: 100%; */
+}
+
+.createrepo {
+    padding-top: 3rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    width: 380px;
+    height: 400px;
+    border-radius: 40px;
+    box-shadow: 0 3px 16px #e0e0e0;
+}
+
+.formitem {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+}
+
+.formitem label {
+    font-size: .8rem;
+}
+
+.formitem input {
+    width: 90%;
+}
+
+.repocreatefrom {
+    padding: 0 2rem;
+}
+
+.createRepoBtn {
+    border: 1px solid white;
+    background-color: #24292F;
+    padding: .6rem .5rem;
+    color: white;
+    cursor: pointer;
+    border-radius: 7px;
+    margin-top: 1rem;
+}
+
+.closeRepoBtn {
+    border: 1px solid white;
+    background-color: #c90a0a;
+    padding: .6rem .5rem;
+    color: white;
+    cursor: pointer;
+    border-radius: 7px;
+    margin-top: 1rem;
+}
+
+.createrepo .formHeading {
+    font-size: 2rem;
+    padding: 0 2rem;
 }

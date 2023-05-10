@@ -4,7 +4,12 @@ import { ServeStaticModule } from '@nestjs/serve-static';
 import { join } from 'path';
 import { GitAuthUrl, GitOAuth } from './auth/auth.services';
 import { ConfigModule } from '@nestjs/config';
-import { GitAuth, GitAuthCallBack } from './auth/auth.controller';
+import {
+  GitAuthController,
+  GitAuthCallBackController,
+} from './auth/auth.controller';
+import { CreateRepoController } from './auth/user.controller';
+import { GitCreateRepo } from './auth/user.services';
 @Module({
   imports: [
     ServeStaticModule.forRoot({
@@ -12,7 +17,12 @@ import { GitAuth, GitAuthCallBack } from './auth/auth.controller';
     }),
     ConfigModule.forRoot(),
   ],
-  controllers: [AppController, GitAuth, GitAuthCallBack],
-  providers: [GitAuthUrl, GitOAuth],
+  controllers: [
+    AppController,
+    GitAuthController,
+    GitAuthCallBackController,
+    CreateRepoController,
+  ],
+  providers: [GitAuthUrl, GitOAuth, GitCreateRepo],
 })
 export class AppModule {}

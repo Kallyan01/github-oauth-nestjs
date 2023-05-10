@@ -1,6 +1,7 @@
 import { Injectable, Req, Res } from '@nestjs/common';
 import axios from 'axios';
 import { Response, Request } from 'express';
+import { GitAuthResponse } from 'src/utils/types/reqres';
 
 @Injectable()
 export class GitAuthUrl {

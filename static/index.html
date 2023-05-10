@@ -38,13 +38,21 @@
             <h1><span class="party-popper">🎉</span><br />Awesome!<br />You're authorized 🔒</h1>
         </div>
     </div>
-    <div class="content authorized createrepo" style="display: none">
-        <form>
-            <label for="name">Repo Name</label>
-            <input type="text" name="name" placeholder="repo name ">
-            <label for="name">Repo Description</label>
-            <input type="text" name="description" placeholder="repo description ">
-            <button type="submit">+ Create Repo</button>
+    <div class=" authorized createrepo" style="display: none">
+        <h3 class="formHeading">Create Repo</h3>
+        <form class="repocreatefrom">
+            <div class="formitem">
+                <label class="" for="name">Repo Name</label>
+                <input type="text" name="name" placeholder="repo name ">
+            </div>
+            <div class="formitem">
+                <label for="name">Repo Description</label>
+                <input type="text" name="description" placeholder="repo description ">
+            </div>
+            <div class="buttonlist">
+                <button type="submit" class="createRepoBtn">+ Create Repo</button>
+                <button type="button" class="closeRepoBtn" onclick="closeCreateRepoForm()">x Close</button>
+            </div>
         </form>
     </div>
     <div class="content-area authorized" style="display: none">
