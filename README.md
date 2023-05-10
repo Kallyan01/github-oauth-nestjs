@@ -77,7 +77,7 @@ Generate the accessToken for you
 | `name`      | `String` | `Repo Name`
 | `description`      | `String` | `Repo Description` 
 
-Generate the accessToken for you 
+create repo for the logged in user
 
 
 
