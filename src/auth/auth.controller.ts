@@ -1,18 +1,18 @@
 import { Controller, Get, Headers, Req, Res } from '@nestjs/common';
-import { GitAuthUrl, GitOAuth } from './auth.services';
 import { GitAuthRequest, GitAuthResponse } from 'src/utils/types/reqres';
+import { GitAuthUrl, GitOAuth } from './auth.services';
 
 @Controller('auth')
 export class GitAuthController {
-  constructor(private readonly git: GitAuthUrl) {}
+  constructor(
+    private readonly git: GitAuthUrl,
+    private readonly gitcallback: GitOAuth,
+  ) {}
   @Get('user')
   gitauth(@Res() res: GitAuthResponse) {
     res.redirect(this.git.getGitUrl());
   }
-}
-@Controller('auth')
-export class GitAuthCallBackController {
-  constructor(private readonly gitcallback: GitOAuth) {}
+
   @Get('gitoauth-callback')
   gitauthcall(@Req() req: GitAuthRequest, @Res() res: GitAuthResponse) {
     this.gitcallback.gitOAuthReq(req, res);

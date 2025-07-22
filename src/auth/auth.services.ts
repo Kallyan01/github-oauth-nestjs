@@ -1,6 +1,6 @@
-import { Injectable, Req, Res } from '@nestjs/common';
 import axios from 'axios';
-import { Response, Request } from 'express';
+import { Injectable, Req, Res } from '@nestjs/common';
+import { Request, Response } from 'express';
 import { GitAuthResponse } from 'src/utils/types/reqres';
 
 @Injectable()
@@ -25,9 +25,6 @@ export class GitOAuth {
       .post('https://github.com/login/oauth/access_token', body, opts)
       .then((_res) => _res.data.access_token)
       .then((token) => {
-        // eslint-disable-next-line no-console
-        console.log('My token:', token);
-
         res.redirect(`/?token=${token}`);
       })
       .catch((err) => res.status(500).json({ err: err.message }));
